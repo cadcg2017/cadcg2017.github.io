@@ -1,0 +1,169 @@
+<?php
+    // post: phone
+	//注册和根据手机号返回user
+	//用户如果不存在，插入；如果存在就select
+	
+	function postmail($name,$mobile,$address,$email,$ecode,$danwei){
+		include './class.phpmailer.php';
+		include './class.smtp.php';
+		$mail = new PHPMailer();
+		$mail->IsSMTP(); // send via SMTP
+		$mail->Host = 'smtp.163.com'; // SMTP servers
+		
+		$mail->SMTPAuth = true; // turn on SMTP authentication
+		$mail->Username = 'chinavis2015';//比如你的邮箱是test@16.com,那么这里就写test
+		$mail->Password ='qwqihnajajihytyk';
+		$mail->From = "chinavis2015@163.com"; // 发件人邮箱
+		$mail->FromName = "chinavis2015@163.com"; // 发件人名称
+		$mail->CharSet = 'UTF-8';
+
+		$mail->AddAddress($email);//收件人,你可以给自己发一封试试
+		$mail->IsHTML(true); // send as HTML 
+
+
+		$mail->Subject = 'ChinaVis-2015 Registration Confirmation';
+		$mail->Body = 'Dear '.$name.',<br><br>
+		This letter is to confirm your attendance to ChinaVis-2015 which will be hosted by<br>
+		Tianjin University from July 17th to 18th, in Tianjin Tianyu hotel, Tianjin, China.<br>
+		Please remember to bring this letter with you to the registration counter when you arrive<br>
+		at the conference.<br>
+		<table>
+			<tbody>
+				<tr>
+					<td colspan="2" style="border-top:1px solid #000; border-bottom:1px solid #000; height:50px; font-size:20px;">
+						<b>Registration Receipt</b>
+					</td>
+				</tr>
+				<tr style="height:15px">
+				</tr>
+				<tr style="height:20px">
+					<td colspan="2">
+						<b>Registration Information</b>
+					</td>
+				</tr>
+				<tr style="height:15px"></tr>
+				<tr style="height:25px">
+					<td style="width:200px">Registration ID:</td>
+					<td>'.$ecode.'</td>
+				</tr>
+				<tr style="height:25px">
+					<td style="width:200px">Registration Date:</td>
+					<td>'.date('Y-m-d H:i:s').'</td>
+				</tr>
+				<tr style="height:25px">
+					<td style="width:200px">Event:</td>
+					<td>The 2nd China Visualization and Visual Analytics Conference</td>
+				</tr>
+				<tr style="height:25px">
+					<td style="width:200px"></td>
+					<td>(ChinaVis-2015)</td>
+				</tr>
+				<tr style="height:25px">
+					<td style="width:200px">Name:</td>
+					<td>'.$name.'</td>
+				</tr>
+				<tr style="height:25px">
+					<td style="width:200px">Organization:</td>
+					<td>'.$danwei.'</td>
+				</tr>
+				<tr style="height:25px">
+					<td style="width:200px">Phone:</td>
+					<td>'.$mobile.'</td>
+				</tr>
+				<tr style="height:25px">
+					<td style="width:200px">Email:</td>
+					<td><a href="mailto:'.$email.'">'.$email.'</a></td>
+				</tr>
+				<tr>
+					<td colspan="2" style="height:15px; border-bottom:1px solid #000"></td>
+				</tr>
+				<tr style="height:15px"></tr>
+			</tbody>
+		</table><br>
+		Thanks and we look forward to seeing you.<br><br>
+		Warmest Regards,
+		ChinaVis-2015 Team
+		';
+		$mail->Send();
+	}
+	
+   header("Content-Type: text/html;charset=utf-8");
+   if (!get_magic_quotes_gpc()) {
+		$name = addslashes($_POST[name]);
+	   $sex = addslashes($_POST[sex]);
+	   $num = addslashes($_POST[num]);
+	   $danwei = addslashes($_POST[danwei]);
+	   $email = addslashes($_POST[email]);
+	   $mobile = addslashes($_POST[mobile]);
+	   $zhiwu = addslashes($_POST[zhiwu]);
+	   $piao = addslashes($_POST[piao]);
+	   $taitou = addslashes($_POST[taitou]);
+	   $address = addslashes($_POST[address]);
+	   $jiaona = addslashes($_POST[jiaona]);
+	} else {
+		$name = $_POST[name];
+	   $sex = $_POST[sex];
+	   $num = $_POST[num];
+	   $danwei = $_POST[danwei];
+	   $email = $_POST[email];
+	   $mobile = $_POST[mobile];
+	   $zhiwu = $_POST[zhiwu];
+	   $piao = $_POST[piao];
+	   $taitou = $_POST[taitou];
+	   $address = $_POST[address];
+	   $jiaona = addslashes($_POST[jiaona]);
+	}
+   
+  
+ //------------------------------------数据库--------------------------------------------------
+   $host = '127.0.0.1:3306'; 
+   $db = 'chinavis'; 
+   $uid = 'root'; 
+   $pwd = 'w1f0l6@TJU';
+ 	
+   // Connect to the database server   
+   $link = mysql_connect($host, $uid, $pwd) or die("Could not connect");
+   mysql_query("SET NAMES 'utf8'"); 
+   //select the json database
+   mysql_select_db($db) or die("Could not select database");
+   
+   //------------------------------------数据库--------------------------------------------------
+   
+   //验证插入的手机号是否存在
+    $sqlphone='select count(*) as t from user where mobile=\''.$mobile.'\'';
+    $rs3 = mysql_query($sqlphone);
+	$login="";
+	while($obj = mysql_fetch_object($rs3)) {
+		$login=$obj->t;
+    }
+    
+	//如果存在，返回false；如果不存在，插入数据库，返回succeed 
+    if($login=="0"){
+		$ecode = "";
+		date_default_timezone_set('PRC');//设置为中华人民共和国d
+		$time = date('ymdGis',time());
+		if($zhiwu=='0'){
+			$ecode = "T";
+		}
+		if($zhiwu=='1'){
+			$ecode = "S";
+		}
+		$ecode = $ecode.$time;
+   
+	    $sql = "INSERT INTO user (name,sex,num,danwei,email,mobile,zhiwu,piao,taitou,address,ecode,jiaona) VALUES ('".$name."','".$sex."','".$num."','".$danwei."','".$email."','".$mobile."','".$zhiwu."','".$piao."','".$taitou."','".$address."','".$ecode."','".$jiaona."')";
+		
+		
+		if(mysql_query($sql)){
+			//sendmails($email,'欢迎光临想学网','想学网测试服务器，请登入邮箱认证');
+			postmail($name,$mobile,$address,$email,$ecode,$danwei);
+		}
+		mysql_close($link);
+		
+		
+		header("Location: http://chinavis.tju.edu.cn/register/success.php?ecode=".$ecode); 
+	}
+	else{
+		header("Location: http://chinavis.tju.edu.cn/register/false.html"); 
+	}
+	  
+?>

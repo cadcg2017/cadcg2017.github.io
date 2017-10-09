@@ -1,0 +1,70 @@
+.divHead {
+    height: 56px;
+    background: #3498db;
+    color: white;
+    font-size: 18px;
+    line-height: 56px;
+    text-align: center;
+}
+.divHead img {
+    margin-top: -4px;
+    margin-right: 10px;
+}
+.divBody {
+	color: #000;
+}
+.divBody span {
+    display: block;
+    color: #333333;
+    font-size: 14px;
+    line-height: 30px;
+    padding-left: 20px;
+    text-align: center;
+}
+
+.divBody hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+.divBody p {
+    padding: 10px 20px 0 20px;
+}
+#sponsorDiv .title {
+    font-size: 18px;
+    color: #333;
+    display: block;
+    text-align: center;
+    padding-top: 40px;
+}
+#sponsorDiv .comName {
+    display: block;
+    text-align: center;
+    color: #333;
+    font-size: 16px;
+    padding-bottom: 30px;
+    line-height: 40px;
+}
+.col-lg-3{
+	width: 100%
+}
+.titleDiv {
+    display: block;
+    color: #0facef;
+    font-size: 16px;
+    padding: 10px 0 10px 20px;
+    background: #e5f5ff;
+    margin: 0 0 10px 0;
+    float: left;
+    width: 100%
+}
+.trafficCont{
+	float:left;
+	background:white;
+	width:800px;
+}
+.trafficCont p{
+	margin:0 0 5px 20px;
+
+}

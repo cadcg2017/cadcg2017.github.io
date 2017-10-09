@@ -1,0 +1,62 @@
+<?php
+    // post: phone
+	//注册和根据手机号返回user
+	//用户如果不存在，插入；如果存在就select
+	include './class.phpmailer.php';
+	include './class.smtp.php';
+	function postmail($email){
+		
+		$mail = new PHPMailer();
+		$mail->IsSMTP(); // send via SMTP
+		$mail->Host = 'smtp.163.com'; // SMTP servers
+		
+		$mail->SMTPAuth = true; // turn on SMTP authentication
+		$mail->Username = 'chinavis2015';//比如你的邮箱是test@16.com,那么这里就写test
+		$mail->Password ='qwqihnajajihytyk';
+		$mail->From = "chinavis2015@163.com"; // 发件人邮箱
+		$mail->FromName = "chinavis2015@163.com"; // 发件人名称
+		$mail->CharSet = 'UTF-8';
+
+		$mail->AddAddress($email);//收件人,你可以给自己发一封试试
+		$mail->IsHTML(true); // send as HTML 
+
+		$mail->Subject = 'ChinaVis-2015 会议通知';
+		$mail->AddEmbeddedImage("pic.jpg", "my-attach", "pic.jpg");
+		$mail->Body = '请各位老师同学通过点击下方的邀请链接，使用金蝶公司行动流服务注册您的信息，我们就可以通过微信实时分享ChinaVis 2015的信息，交流互动。谢谢
+		<a href="http://kact.kingdee.com/world/view?key=MDAwZDZkZTAwMDJrNTMzYmQyMjAz&corp_id=">http://kact.kingdee.com/world/view?key=MDAwZDZkZTAwMDJrNTMzYmQyMjAz&corp_id=</a>';
+		$mail->Send();
+		
+		unset ($mail);
+	}
+	
+  
+  
+ //------------------------------------数据库--------------------------------------------------
+   $host = '127.0.0.1:3306'; 
+   $db = 'chinavis'; 
+   $uid = 'root'; 
+   $pwd = 'w1f0l6@TJU';
+ 	
+   // Connect to the database server   
+   $link = mysql_connect($host, $uid, $pwd) or die("Could not connect");
+   mysql_query("SET NAMES 'utf8'"); 
+   //select the json database
+   mysql_select_db($db) or die("Could not select database");
+   
+   //------------------------------------数据库--------------------------------------------------
+   
+   //验证插入的手机号是否存在
+    $sqlphone='select email from fapiao where status=0';
+    $rs3 = mysql_query($sqlphone);
+	
+	while($obj = mysql_fetch_object($rs3)) {
+		$email=$obj->email;
+		echo $email;
+		
+		postmail($email);
+		sleep(1);
+    }
+    
+		
+	
+?>

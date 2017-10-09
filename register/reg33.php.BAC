@@ -1,0 +1,68 @@
+<?php
+    // post: phone
+	//注册和根据手机号返回user
+	//用户如果不存在，插入；如果存在就select
+	include './class.phpmailer.php';
+	include './class.smtp.php';
+	function postmail($email){
+		
+		$mail = new PHPMailer();
+		$mail->IsSMTP(); // send via SMTP
+		$mail->Host = 'smtp.163.com'; // SMTP servers
+		
+		$mail->SMTPAuth = true; // turn on SMTP authentication
+		$mail->Username = 'chinavis2015';//比如你的邮箱是test@16.com,那么这里就写test
+		$mail->Password ='qwqihnajajihytyk';
+		$mail->From = "chinavis2015@163.com"; // 发件人邮箱
+		$mail->FromName = "chinavis2015@163.com"; // 发件人名称
+		$mail->CharSet = 'UTF-8';
+
+		$mail->AddAddress($email);//收件人,你可以给自己发一封试试
+		$mail->IsHTML(true); // send as HTML 
+
+		$mail->Subject = 'ChinaVis-2015 发票相关信息';
+		$mail->Body = '各位老师、同学:<br><br>
+		很高兴您能参加2015年7月17日-7月18日在天津召开的ChinaVis 2015会议，如果您已经完成注册并缴纳了注册费，请您填写发票相关信息，<a href="http://chinavis.tju.edu.cn/invoice/index.html">http://chinavis.tju.edu.cn/invoice/index.html</a>；以便我们尽快给您开具发票。
+			<br>
+        谢谢您的合作！有任何问题欢迎发邮件和来电咨询。
+			<br>
+        祝您工作愉快！
+			<br>
+ChinaVis 2015 会务组';
+		$mail->Send();
+		
+		unset ($mail);
+	}
+	
+  
+  
+ //------------------------------------数据库--------------------------------------------------
+   $host = '127.0.0.1:3306'; 
+   $db = 'chinavis'; 
+   $uid = 'root'; 
+   $pwd = 'w1f0l6@TJU';
+ 	
+   // Connect to the database server   
+   $link = mysql_connect($host, $uid, $pwd) or die("Could not connect");
+   mysql_query("SET NAMES 'utf8'"); 
+   //select the json database
+   mysql_select_db($db) or die("Could not select database");
+   
+   //------------------------------------数据库--------------------------------------------------
+   
+   //验证插入的手机号是否存在
+    $sqlphone='select email from fa';
+    $rs3 = mysql_query($sqlphone);
+	
+	while($obj = mysql_fetch_object($rs3)) {
+		$email=$obj->email;
+		echo $email;
+		postmail($email);
+		sleep(1);
+		
+    }
+	//postmail("yuantianda@126.com");
+    
+		
+	
+?>

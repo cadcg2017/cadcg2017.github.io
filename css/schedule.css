@@ -1,0 +1,93 @@
+.tabPanel{
+	float: left;
+	width: 98%;
+	border: 1px solid #0facef;
+	height: 112px;
+	margin-top: 10px;
+	margin-left: 10px;
+	font-size: 26px;
+}
+
+.tabPanel .one, .two, .four {
+    width: 25%;
+    float: left;
+    border-right: 1px solid #3498db;
+    height: 110px;
+    cursor: pointer;
+    color: #0facef;
+    text-align: center;
+    line-height: 110px;
+}
+
+.tabPanel .one:hover{
+	background-color: #0facef!important;
+	color: #fff!important;
+}
+.tabPanel .two:hover{
+	background-color: #0facef;
+	color: #fff;
+}
+.tabPanel .four:hover{
+	background-color: #0facef;
+	color: #fff;
+}
+
+.tabPanel .myactive {
+    width: 25%;
+    float: left;
+    border-right: 1px solid #3498db;
+    height: 110px;
+    cursor: pointer;
+    color: #0facef;
+    text-align: center;
+    line-height: 110px;
+}
+
+#mydiv1{
+	visibility:hidden; 
+}
+#mydiv2{
+	visibility:hidden; 
+}
+#mydiv2 table{
+	width:95%;
+	margin:0 auto;
+}
+#mydiv2 table td{
+	border: 1px solid #0facef;
+	padding: 10px;
+}
+#mydiv2 table strong{
+	font-weight: bold;
+}
+#mydiv2 table p{
+	padding: 0 30px;
+}
+#mydiv3 table{
+	width:95%;
+	margin:0 auto;
+}
+#mydiv3{
+	visibility:hidden; 
+}
+#mydiv3 table td{
+	border: 1px solid #0facef;
+	padding: 10px;
+}
+#mydiv3 table strong{
+	font-weight: bold;
+}
+#mydiv4 table{
+	width:95%;
+	margin:0 auto;
+}
+#mydiv4{
+	visibility:hidden; 
+}
+#mydiv4 table td{
+	border: 1px solid #0facef;
+	padding: 10px;
+}
+#mydiv4 table strong{
+	font-weight: bold;
+}

@@ -1,0 +1,39 @@
+.titleDiv{
+display: block;
+color: #0facef;
+font-size: 16px;
+padding: 10px 0 10px 20px;
+background: #e5f5ff;
+margin:0 10px 10px 10px;
+}
+.rowcon{
+	float: left;
+	padding: 0;
+    margin: 0;
+}
+.rowcon p{
+	margin: 0 0 10px 15px;
+
+}
+.reportContent{
+	margin-right: 5px;
+	padding-left: 5em;
+}
+.reportContent span {
+    margin-left: -5em;
+}
+.col-lg-12{
+	width: 74%;
+}
+.col-xs-3{
+	width: 25%;
+	padding: 1%;
+}
+.titleDiv1{
+display: block;
+color: #0facef;
+font-size: 16px;
+padding: 10px 0 10px 20px;
+background: #e5f5ff;
+margin:0 10px 10px 10px;
+}

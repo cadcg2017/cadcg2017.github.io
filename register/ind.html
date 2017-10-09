@@ -1,0 +1,337 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>2017 China CAD&CG 注册</title>
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src='js/jquery-1.4.4.min.js'></script>
+<script type="text/javascript" src="js/script.js"></script>
+
+</head>
+<body>
+		<div id="register" class="register">
+			<form id="form" action="./reg.php" method="post" onSubmit="return check();">
+				<div id="form_submit" class="form_submit">
+					<div class="fieldset">
+					
+					    <div class="field-group">
+							<label class="required title">姓名</label>
+							<span class="control-group" id="name_input">
+								<div class="input_add_long_background">
+									<input class="register_input" type="text" id="name" name="name" value="" onblur="__changeUserName('name');">
+								</div>
+							</span>	
+							<label class="tips">必填项</label>
+						</div>
+						
+						
+						
+						 <div class="field-group">
+							<label class="required title">单位名称</label>
+							<span class="control-group" id="danwei_input">
+								<div class="input_add_long_background">
+									<input class="register_input" type="text" id="danwei" name="danwei"  value="" onblur="__changeUserName('danwei');">
+								</div>
+							</span>	
+							<label class="tips">必填项</label>
+						</div>
+						
+						<div class="field-group">
+							<label class="required title">Email</label>
+							<span class="control-group" id="email_input">
+								<div class="input_add_long_background">
+									<input class="register_input" type="text" id="email" name="email" value="" onblur="__changeUserName('email');">
+								</div>
+							</span>
+							<label class="tips">必填项</label>
+						</div>
+						
+						<div class="field-group">
+							<label class="required title">手机号码</label>
+							<span class="control-group" id="mobile_input">
+								<div class="input_add_long_background">
+									<input class="register_input" type="text" id="mobile" name="mobile"  value="" onblur="__changeUserName('mobile');">
+								</div>
+							</span>
+							<label class="tips">必填项</label>
+						</div>
+						
+						
+						 <div class="field-group">
+							<label class="required title">论文ID</label>
+							<span class="control-group" id="numwm_input">
+								<div class="input_add_long_background">
+									<input class="register_input" type="text" id="numwm" name="numwm"  value="" onblur="__changeUserName('numwm');">
+								</div>
+							</span>	
+							<label class="tips">必填项(无，填写无)</label>
+						</div>
+
+
+						<div class="field-group">
+							<label class="required title">职务</label>
+							<span class="control-group" style="line-height:28px;" id="zhiwu_input">
+								<div class="input_add_long_background">
+									<input class="register_input" type="text" id="zhiwu" name="zhiwu" value="" onblur="__changeUserName('zhiwu');">
+								</div>
+							</span>
+						</div>
+						<div class="field-group">
+							<label class="required title">是否填写发票信息</label>
+							<span class="control-group" style="line-height:28px;" >
+								<input  type="radio" value="1" name="jiaona" id="jiaona"  readonly="readonly"  onclick="checkhidden(true)" checked="checked">
+								是
+								<input  type="radio" value="0" name="jiaona" id="jiaona"  readonly="readonly"  onclick="checkhidden(false)" checked="checked">
+								否
+							</span>
+						</div>
+						 
+					</div>
+					<p><strong style="color:#f00">注意事项：缴纳注册费以邮件邮寄的注册凭据表为主。故请及时返回注册凭据表。</strong></p>
+					<div id="wanttoshow">
+						<div class='div_submit_button'>
+							<input id="submit" type="submit" value="" class='button_button disabled' style="margin-left:-20px;">
+						</div>
+					</div>
+				
+				<div id="wanttohidden">
+					<div class="fieldset">
+
+						<div class="field-group">
+								<label class="required title">发票抬头</label>
+								<span class="control-group" id="taitou_input">
+									<div class="input_add_long_background">
+										<input class="register_input" type="text" id="taitou" name="taitou"  value=""  onblur="__changeUserName('taitou');">
+									</div>
+								</span>
+								<label class="tips">必填项</label>
+						</div>
+						<div class="field-group">
+								<label class="required title">邮寄地址</label>
+								<span class="control-group" id="youji_input">
+									<div class="input_add_long_background">
+										<input class="register_input" type="text" id="address" name="address"  value="" >
+									</div>
+								</span>
+								<label class="tips">必填项</label>
+						</div>
+						<div class="field-group">
+								<label class="required title">税号</label>
+								<span class="control-group" id="shuihao_input">
+									<div class="input_add_long_background">
+										<input class="register_input" type="text" id="shuihao" name="shuihao"  value="" >
+									</div>
+								</span>
+								<label class="tips">必填项</label>
+						</div>
+						<div class="field-group">
+								<label class="required title">收件人</label>
+								<span class="control-group" id="shou_input">
+									<div class="input_add_long_background">
+										<input class="register_input" type="text" id="shou" name="shou"  value="" >
+									</div>
+								</span>
+								<label class="tips">必填项</label>
+						</div>
+						<div class="field-group">
+								<label class="required title">联系电话</label>
+								<span class="control-group" id="shoumobile_input">
+									<div class="input_add_long_background">
+										<input class="register_input" type="text" id="shoumobile" name="shoumobile"    value="" onblur="__changeUserName('shoumobile');">
+									</div>
+								</span>
+								<label class="tips">必填项</label>
+						</div>
+
+						<div class="field-group">
+							<label class="required title">是否开发票</label>
+							<span class="control-group" style="line-height:28px;" >
+								<input  type="radio" value="1" name="sex" id="sex"  readonly="readonly"   checked="checked">
+								是
+								<input  type="radio" value="0" name="sex" id="sex"  readonly="readonly"  checked="checked">
+								否
+							</span>
+							<label class="tips">默认为不开发票</label>
+						</div>
+
+						
+					</div>
+					<div class='div_submit_button'>
+						<input id="submit" type="submit" value="" class='button_button' style="margin-left:-20px;">
+					</div>
+				</div>
+				
+				</div>
+				
+				
+				
+			</form>
+		</div>
+
+<script type="text/javascript">
+var wmflag = 0;
+$(function(){
+	document.getElementById("wanttoshow").style.visibility="visible";
+	document.getElementById("wanttohidden").style.visibility="hidden";
+	document.getElementById("jiaona").value='0';
+});
+function checkhidden(flag){
+	if(flag==true){
+		document.getElementById("wanttohidden").style.visibility="visible";	    		
+		document.getElementById("wanttoshow").style.visibility="hidden";	    		
+		document.getElementById("form_submit").style.height= 700 + "px";
+		document.getElementById("jiaona").value='0';
+		wmflag = 1;
+	}
+	else{
+		document.getElementById("wanttohidden").style.visibility="hidden";
+		document.getElementById("wanttoshow").style.visibility="visible";	    		
+		document.getElementById("form_submit").style.height= 500 + "px";
+		document.getElementById("jiaona").value='1';
+	}
+
+	
+}
+
+
+function __changeUserName(of){
+	var username=$('#'+of).val();
+	if(of=='email'){
+		if (username.search(/^[\w\.+-]+@[\w\.+-]+$/) == -1) {
+			showTooltips('email_input','请输入正确的Email地址');
+			return;
+		}					
+	}else{
+		if(username=='' || !isMobilePhone(username)) {
+			showTooltips('mobile_input','请输入正确的手机号码');
+			return;
+		}
+	}
+}
+
+function checkPwd1(pwd1) {
+	if (pwd1.search(/^.{6,20}$/) == -1) {
+		showTooltips('password1_input','密码为空或位数太少');
+	}else {
+		hideTooltips('password1_input');
+	}
+}	
+
+function checkEmail(email) {
+	if (email.search(/^.+@.+$/) == -1) {
+		showTooltips('email_input','邮箱格式不正确');
+	}else {
+		hideTooltips('email_input');
+	}
+}
+
+function checkAuthCode(authcode) {
+	if (authcode == '' || authcode.length != 6) {
+		showTooltips('code_input','验证码不正确');
+	}else {
+		hideTooltips('code_input');
+	}     
+}
+
+function check() {
+	hideAllTooltips();
+	var ckh_result = true;
+	if ($('#name').val() == '') {
+		showTooltips('name_input','姓名不能为空');
+		ckh_result = false;
+	}
+	if ($('#danwei').val() == '') {
+		showTooltips('danwei_input','单位名称不能为空');
+		ckh_result = false;
+	}
+	if ($('#email').val() == '') {
+		showTooltips('email_input','email不能为空');
+		ckh_result = false;
+	}
+	if($('#mobile').val()=='' || !isMobilePhone($('#mobile').val())) {            
+		showTooltips('mobile_input','手机号码不正确');
+		ckh_result = false;
+	}
+	if(wmflag){
+		ckh_result=checkwmall();
+	}
+	return ckh_result;
+}
+function checkwmall(){
+
+	if ($('#taitou').val() == '') {
+		showTooltips('taitou_input','发票抬头不能为空');
+		ckh_result = false;
+		a=0;
+	}
+	else
+		a=1;
+	if ($('#address').val() == '') {
+		showTooltips('youji_input','邮寄地址不能为空');
+		b=0;
+		ckh_result = false;
+	}
+	else
+		b=1;
+	if ($('#shuihao').val() == '') {
+		showTooltips('shuihao_input','税号不能为空');
+		c=0;
+		ckh_result = false;
+	}
+	else
+		c=1;
+	if ($('#shou').val() == '') {
+		showTooltips('shou_input','收件人不能为空');
+		d=0;
+		ckh_result = false;
+	}
+	else
+		d=1;
+	if ($('#shoumobile').val() == '') {
+		e=0;
+		showTooltips('shoumobile_input','收件人电话不能为空');
+		ckh_result = false;
+	}
+	else
+		e=1;
+	if($('#shoumobile').val()=='' || !isMobilePhone($('#shoumobile').val())) {            
+		showTooltips('shoumobile_input','手机号码不正确');
+		f=0;
+		ckh_result = false;
+	}
+	else
+		f=1;
+
+
+	console.log(ckh_result);
+	if(a&&b&&c&&d&&e&&f){
+		ckh_result = true;
+		wmflag = 2;
+	console.log("ddd");
+	}
+	console.log(wmflag);
+console.log("-----------")
+	console.log(ckh_result);
+	return ckh_result; 
+}
+
+function checkMobilePhone(telphone) {
+	if(telphone=='' || !isMobilePhone(telphone)) {
+		showTooltips('mobile_input','请输入正确的手机号码');
+	}else{
+		hideTooltips('mobile_input');
+	}
+}
+
+function isMobilePhone(value) {
+	if(value.search(/^(\+\d{2,3})?\d{11}$/) == -1)
+	return false;
+	else
+	return true;
+} 
+</script>
+
+</body>
+</html>

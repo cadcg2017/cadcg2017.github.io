@@ -1,0 +1,22 @@
+.collectpaper{
+	font-size: 16px;
+	border-collapse: collapse;   
+	border: none; 
+}
+.collectpaper td{
+	border: 1px solid #0facef;
+	padding: 10px;
+}
+
+.collectpaper2{
+	font-size: 16px;
+	border-collapse: collapse;   
+	border: none; 
+}
+.collectpaper2 td{
+	border: 1px solid #0facef;
+	padding: 10px;
+}
+.collectpaper tr td a{
+	color: #088afb;
+}

@@ -1,0 +1,17 @@
+.name_wy{
+	margin-left:25px;
+	margin-right:25px;
+	table-layout:fixed;
+}
+
+.name_wy td{
+	width:420px;
+	padding:2px 0px;
+}
+.name_wy td:nth-child(1){
+	width:800px;
+padding-left:100px;
+}
+.name_wy td:nth-child(2){
+	width:800px;
+}
