@@ -11,15 +11,25 @@ xmlns="http://www.w3.org/TR/REC-html40">
 <link rel=File-List href="schedule.files/filelist.xml">
 <![if !supportTabStrip]>
 <link id="shLink" href="schedule.files/sheet001.htm">
+<link id="shLink" href="schedule.files/sheet002.htm">
+<link id="shLink" href="schedule.files/sheet003.htm">
+<link id="shLink" href="schedule.files/sheet004.htm">
+<link id="shLink" href="schedule.files/sheet005.htm">
+<link id="shLink" href="schedule.files/sheet006.htm">
 
 <link id="shLink">
 
 <script language="JavaScript">
 <!--
- var c_lTabs=1;
+ var c_lTabs=6;
 
  var c_rgszSh=new Array(c_lTabs);
  c_rgszSh[0] = "总日程";
+ c_rgszSh[1] = "CAD";
+ c_rgszSh[2] = "EDA";
+ c_rgszSh[3] = "vis";
+ c_rgszSh[4] = "CG";
+ c_rgszSh[5] = "CV";
 
 
 
@@ -299,6 +309,26 @@ function fnSetActiveSheet(iSh)
    <x:ExcelWorksheet>
     <x:Name>总日程</x:Name>
     <x:WorksheetSource HRef="schedule.files/sheet001.htm"/>
+   </x:ExcelWorksheet>
+   <x:ExcelWorksheet>
+    <x:Name>CAD</x:Name>
+    <x:WorksheetSource HRef="schedule.files/sheet002.htm"/>
+   </x:ExcelWorksheet>
+   <x:ExcelWorksheet>
+    <x:Name>EDA</x:Name>
+    <x:WorksheetSource HRef="schedule.files/sheet003.htm"/>
+   </x:ExcelWorksheet>
+   <x:ExcelWorksheet>
+    <x:Name>vis</x:Name>
+    <x:WorksheetSource HRef="schedule.files/sheet004.htm"/>
+   </x:ExcelWorksheet>
+   <x:ExcelWorksheet>
+    <x:Name>CG</x:Name>
+    <x:WorksheetSource HRef="schedule.files/sheet005.htm"/>
+   </x:ExcelWorksheet>
+   <x:ExcelWorksheet>
+    <x:Name>CV</x:Name>
+    <x:WorksheetSource HRef="schedule.files/sheet006.htm"/>
    </x:ExcelWorksheet>
   </x:ExcelWorksheets>
   <x:Stylesheet HRef="schedule.files/stylesheet.css"/>
